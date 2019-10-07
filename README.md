@@ -1,0 +1,3 @@
+# AndroidApp_Pothik
+
+*
