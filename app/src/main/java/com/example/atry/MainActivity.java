@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity /*implements View.OnClickListener*/{
+public class MainActivity extends AppCompatActivity {
 
-    private Button BsignIn,BsignUp,BsignInTreveler,BsignInAgency;
+    Button BsignIn,BsignUp,BsignInTreveler,BsignInAgency;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,32 +42,6 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
             }
         });
 
-
     }
+
 }
-
-/*BsignUp.setOnClickListener(this);
-        BsignInAgency.setOnClickListener(this);
-        BsignInTreveler.setOnClickListener(this);*/
-/*
-    @Override
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.BsignUp:
-                Intent i = new Intent(getApplicationContext(), SignUpAs.class);
-                startActivity(i);
-                break;
-
-            case R.id.BsignInAgency:
-                Intent b = new Intent(getApplicationContext(), SignInAsAgency.class);
-                startActivity(b);
-                break;
-            case R.id.BsignInTreveler:
-                Intent c = new Intent(getApplicationContext(), SignInAsTraveler.class);
-                startActivity(c);
-                break;
-        }
-
-
-    }*/

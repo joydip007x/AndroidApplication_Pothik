@@ -8,19 +8,18 @@
     tools:context=".SignUpA">
 
     <TextView
-        android:id="@+id/tv2"
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="650dp"
-        android:hint="Sign Up As Agency"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="605dp"
+        android:text="Sign Up As Agency"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:textColor="#F8D3CD"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,23 +28,23 @@
         app:layout_constraintVertical_bias="0.315" />
 
     <EditText
-        android:id="@+id/ETcomName2"
+        android:id="@+id/ETcomName"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="574dp"
         android:hint="Agency Name"
+        android:textColorHint="#ffffff"
         android:inputType="textShortMessage"
+        android:textSize="20dp"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20dp" />
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="550dp" />
 
     <EditText
-        android:id="@+id/ETownerName2"
+        android:id="@+id/ETownerName"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -53,16 +52,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="519dp"
-        android:hint="Owner's Name"
+        android:layout_marginBottom="500dp"
+        android:textColorHint="#ffffff"
         android:inputType="text"
+        android:hint="Owner's Name"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
         android:textSize="20dp" />
 
-
     <EditText
-        android:id="@+id/ETaddress2"
+        android:id="@+id/ETaddress"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -70,14 +68,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="463dp"
-        android:hint="Official Address"
+        android:layout_marginBottom="450dp"
+        android:text="Official Address"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
         android:textSize="20dp" />
 
+
     <EditText
-        android:id="@+id/ETnumber2"
+        android:id="@+id/ETnumber"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -85,7 +83,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="409dp"
+        android:layout_marginBottom="400dp"
         android:hint="Contact Number"
         android:inputType="number"
         android:textColor="#ffffff"
@@ -93,7 +91,7 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/ETemail2"
+        android:id="@+id/ETemail"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -110,7 +108,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/TVdescription2"
+        android:id="@+id/TVdescription"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -118,13 +116,13 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="312dp"
+        android:layout_marginBottom="300dp"
         android:text="Description"
         android:textColor="#ffffff"
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/ETdescription2"
+        android:id="@+id/ETdescription"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
@@ -132,13 +130,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:inputType="textLongMessage"
+        android:inputType="text"
         android:layout_marginBottom="236dp"
+        android:text=""
         android:textColor="#ffffff"
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/ETpass2"
+        android:id="@+id/ETpass"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -146,62 +145,47 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="185dp"
-        android:hint="Password"
+        android:layout_marginBottom="170dp"
         android:inputType="textPassword"
+        android:hint="Password"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
-        android:textColor="#ffffff"
         android:textColorHint="#434040"
+        android:textColor="#ffffff"
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/ETconfirmPass2"
+        android:id="@+id/ETconfirmPass"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="132dp"
-        android:hint="Confirm Password"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="120dp"
         android:inputType="textPassword"
+        android:hint="Confirm Password"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
         android:textColor="#ffffff"
         android:textColorHint="#434040"
         android:textSize="20dp" />
-
     <Button
-        android:id="@+id/Bsup2"
-        android:layout_width="match_parent"
+        android:id="@+id/Bsup"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="29dp"
-        android:background="#000000"
-        android:text="Sign UP As Agency"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="12dp"
+        android:background="#434040"
+        android:layout_marginBottom="50dp"
+        android:text="Sign In As Agency"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="20dp" />
-
-    <ProgressBar
-        android:id="@+id/suaaprogressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="185dp"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/OcolorAccent"
-        android:visibility="invisible"
-        android:layout_marginBottom="77dp" />
 
 
 </RelativeLayout>
