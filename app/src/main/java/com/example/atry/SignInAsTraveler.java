@@ -1,9 +1,11 @@
 package com.example.atry;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +20,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static com.example.atry.MainActivity.getUser;
+import static com.example.atry.MainActivity.getUser2;
+import static com.example.atry.MainActivity.user2;
+
 public class SignInAsTraveler extends AppCompatActivity /*implements View.OnClickListener*/ {
 
     private EditText sinEmailET, sinPassET;
     private Button Bsin;
     private TextView pothik, siat;
-    private FirebaseAuth mAuth;
     private  String pass,email;
-    private  FirebaseUser user1;
     private ProgressBar progressBar;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +41,18 @@ public class SignInAsTraveler extends AppCompatActivity /*implements View.OnClic
         Bsin = findViewById(R.id.BsIn);
         pothik = findViewById(R.id.tv);
         siat = findViewById(R.id.tv2);
-        mAuth = FirebaseAuth.getInstance();
+        MainActivity.mAuth = FirebaseAuth.getInstance();
+
+        if(MainActivity.getUser2()!=null){
+
+            Intent a = new Intent(SignInAsTraveler.this.getApplicationContext(), EmptyPage.class);
+            a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(a);
+          //  finish();
+            finishAndRemoveTask();
+
+        }
 
         progressBar=findViewById(R.id.progressBar4);
 
@@ -72,7 +88,7 @@ public class SignInAsTraveler extends AppCompatActivity /*implements View.OnClic
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                mAuth.signInWithEmailAndPassword(email, pass)
+                MainActivity.mAuth.signInWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(SignInAsTraveler.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -81,13 +97,14 @@ public class SignInAsTraveler extends AppCompatActivity /*implements View.OnClic
 
                                 if (task.isSuccessful()) {
 
-                                    user1 = mAuth.getCurrentUser();
+                                    MainActivity.user2 = getUser2();
                                     Toast.makeText(SignInAsTraveler.this.getApplicationContext(), "Logged in ",
                                             Toast.LENGTH_LONG).show();
 
-                                    Intent a = new Intent(SignInAsTraveler.this.getApplicationContext(), MainActivity.class);
+                                    Intent a = new Intent(SignInAsTraveler.this.getApplicationContext(), EmptyPage.class);
                                     a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(a);
+
                                 } else {
 
                                     Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();

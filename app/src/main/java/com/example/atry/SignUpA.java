@@ -18,15 +18,27 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.example.atry.MainActivity.setUser;
+import static com.example.atry.MainActivity.setUserID;
+import static com.example.atry.MainActivity.userID;
 
 public class SignUpA extends AppCompatActivity {
 
     private EditText emailET, passET ,conPassET, nameET,agencyNameET,addressET,numberET,descriptionET;
     private Button Bsup;
     private TextView tv;
-    private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private  String email,pass,Conpass;
+    private DatabaseReference mAgencyDatabase;
+    private String mAgencyName, mAddress,mNumber,mEmail,mDescription,mName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,15 +50,18 @@ public class SignUpA extends AppCompatActivity {
         Bsup = findViewById(R.id.Bsup2);
         nameET = findViewById(R.id.ETownerName2);
         agencyNameET = findViewById(R.id.ETcomName2);
-        addressET = findViewById(R.id.ETaddress);
-        numberET = findViewById(R.id.ETnumber);
+        addressET = findViewById(R.id.ETaddress2);
+        numberET = findViewById(R.id.ETnumber2);
         descriptionET = findViewById(R.id.ETdescription2);
-        tv = findViewById(R.id.tv1);
+        tv = findViewById(R.id.tvagency);
         progressBar=findViewById(R.id.suaaprogressBar2);
 
         progressBar.setVisibility(View.INVISIBLE);
 
-        mAuth=FirebaseAuth.getInstance();
+        MainActivity.mAuth=FirebaseAuth.getInstance();
+
+
+        MainActivity.setUser();
 
         Bsup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +103,7 @@ public class SignUpA extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.VISIBLE);
 
-                mAuth.createUserWithEmailAndPassword(email, pass)
+                MainActivity.mAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(SignUpA.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -96,20 +111,14 @@ public class SignUpA extends AppCompatActivity {
                                 if (task.isSuccessful()) {
 
                                     Toast.makeText(SignUpA.this.getApplicationContext(), "Register is successfull", Toast.LENGTH_SHORT).show();
-
-                                    new Thread() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                Thread.sleep(3600);
-
-                                            } catch (InterruptedException e) {
-
-                                            }
-                                        }
-                                    };
-
                                     progressBar.setVisibility(View.INVISIBLE);
+                                    setUserID();
+                                    mAgencyDatabase = FirebaseDatabase.getInstance().getReference().child("user").child("agency").push();
+                                    saveUserInfo();
+                                  /*
+                                  DatabaseReference current_userDB = FirebaseDatabase.getInstance().getReference().child("user").child("agency").child(userID);
+                                    current_userDB.setValue(true);
+                                  */
                                     Intent a = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(a);
 
@@ -120,11 +129,29 @@ public class SignUpA extends AppCompatActivity {
                                 }
                             }
                         });
-
-
             }
         });
     }
+    private void saveUserInfo()
+    {
+        mName = nameET.getText().toString().trim();
+        mAgencyName = agencyNameET.getText().toString();
+        mAddress = addressET.getText().toString().trim();
+        mNumber = numberET.getText().toString();
+        mDescription = descriptionET.getText().toString().trim();
+        mEmail = emailET.getText().toString();
+
+        Map userInfo = new HashMap();
+        userInfo.put("name",mName);
+        userInfo.put("agencyName",mAgencyName);
+        userInfo.put("address",mAddress);
+        userInfo.put("number",mNumber);
+        userInfo.put("description",mDescription);
+        userInfo.put("email",mEmail);
+        mAgencyDatabase.setValue(userInfo);
+
+    }
+
 
 }
 

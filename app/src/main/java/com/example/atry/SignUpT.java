@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import static com.example.atry.MainActivity.setUser;
+import static com.example.atry.MainActivity.setUserID;
+import static com.example.atry.MainActivity.setUserID2;
 
 public class SignUpT extends AppCompatActivity {
 
@@ -27,10 +38,16 @@ public class SignUpT extends AppCompatActivity {
     private Button Bsup;
     private RadioButton male,female;
     private TextView genderTV,tv;
-    private FirebaseAuth mAuth;
     private String age,email,pass,Conpass;
     private ProgressBar progressBar;
+    private RadioGroup rg;
+    private  String mName,mAge,mAddress,mgender,mEmail,mNumber;
+
+    private DatabaseReference mTravelerDatabase;
+
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -49,8 +66,16 @@ public class SignUpT extends AppCompatActivity {
         female = findViewById(R.id.RBfemale);
         progressBar=findViewById(R.id.suaaprogressBar1);
 
+
+        male=findViewById(R.id.RBmale);
+        female=findViewById(R.id.RBfemale);
+
         progressBar.setVisibility(View.INVISIBLE);
-        mAuth = FirebaseAuth.getInstance();
+        MainActivity.mAuth = FirebaseAuth.getInstance();
+
+        rg=findViewById(R.id.RG1);
+
+
 
         Bsup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +98,7 @@ public class SignUpT extends AppCompatActivity {
                     emailET.requestFocus();
                     return;
                 }
-                if(   age.isEmpty() || Integer.parseInt(age) <=0 || Integer.parseInt(age)>=100 ){
+                if(   age.isEmpty() || Integer.parseInt(age) <=0 || Integer.parseInt(age)>100 ){
 
                     ageET.setError("Enter a valid age between 1-100");
                     ageET.requestFocus();
@@ -91,7 +116,7 @@ public class SignUpT extends AppCompatActivity {
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
-                mAuth.createUserWithEmailAndPassword(email, pass)
+                MainActivity.mAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(SignUpT.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -101,11 +126,14 @@ public class SignUpT extends AppCompatActivity {
                                     Toast.makeText(SignUpT.this.getApplicationContext(), "Register is successfull",
                                             Toast.LENGTH_SHORT).show();
 
+                                    setUserID2();
+                                    mTravelerDatabase = FirebaseDatabase.getInstance().getReference().child("user").child("traveler").push();
+                                    saveUserInfo();
                                     Intent a = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(a);
                                 } else {
 
-                                    Toast.makeText(getApplicationContext(),task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -115,85 +143,27 @@ public class SignUpT extends AppCompatActivity {
         });
     }
 
+    private void saveUserInfo()
+    {
+        mName = nameET.getText().toString().trim();
+        mAge=ageET.getText().toString();
+        mAddress = addressET.getText().toString().trim();
+        mNumber = numberET.getText().toString();
+        mEmail = emailET.getText().toString();
+        if(male.isChecked()) mgender="Male";
+        else mgender="Female";
+
+        Map userInfo = new HashMap();
+        userInfo.put("name",mName);
+        userInfo.put("age",mAge);
+        userInfo.put("address",mAddress);
+        userInfo.put("number",mNumber);
+        userInfo.put("gender",mgender);
+        userInfo.put("email",mEmail);
+        mTravelerDatabase.setValue(userInfo);
+
+    }
+
 }
 
- /*Intent a = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(a);*/
-    /*}
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.Bsup :
-                userRegister();
-
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.FROYO)
-    private void userRegister() {
-
-        String name = nameET.getText().toString().trim();
-        String age = ageET.getText().toString().trim();
-        String add = addressET.getText().toString().trim();
-
-        String email = emailET.getText().toString().trim();
-        String pass = passET.getText().toString().trim();
-        String Conpass = conPassET.getText().toString().trim();
-
-        if(email.isEmpty())
-        {
-            emailET.setError("Enter an email address");
-            emailET.requestFocus();
-            return;
-        }
-
-        if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
-        {
-            emailET.setError("Enter a valid email address");
-            emailET.requestFocus();
-            return;
-        }
-
-        if(pass.isEmpty())
-        {
-            passET.setError("Enter a password");
-            passET.requestFocus();
-            return;
-        }
-        if(pass.length()<6)
-        {
-            passET.setError("Password Length should be minimum 6");
-            passET.requestFocus();
-            return;
-        }
-        if(pass!=Conpass)
-        {
-            passET.setError("Password doesn't match");
-            passET.requestFocus();
-            return;
-        }
-
-        mAuth.createUserWithEmailAndPassword(email, pass)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(SignUpT.this.getApplicationContext(), "Register is successfull", Toast.LENGTH_SHORT).show();
-                        } else {
-
-                            *//*if (task.getException() instanceof FirebaseAuthUserCollisionException ())
-                            {
-                                Toast.makeText(SignUpT.this.getApplicationContext(), "User is already registered", Toast.LENGTH_SHORT).show();
-                            }
-                            else*//*
-                            Toast.makeText(SignUpT.this.getApplicationContext(), "Register is not successfull", Toast.LENGTH_SHORT).show();
-
-                        }
-
-                    }
-
-                });
-    }
-}*/
