@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class SignUpAs extends AppCompatActivity {
 
-    private Button BsignIn,BsignUp,BsignUpTreveler,BsignUpAgency;
+    Button BsignIn,BsignUp,BsignUpTreveler,BsignUpAgency;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
