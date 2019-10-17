@@ -12,13 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SignInAsTraveler"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".SignInAsTraveler" />
         <activity android:name=".SignUpA" />
         <activity android:name=".SignUpT" />
         <activity android:name=".SignUpAs" />
         <activity android:name=".SignInAsAgency" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".FrontPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +26,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".EmptyPage">
 
-        </activity>
+       <!-- <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
     </application>
 
 </manifest>

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -26,64 +25,58 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-
-import static com.example.atry.MainActivity.setUser;
-import static com.example.atry.MainActivity.setUserID;
-import static com.example.atry.MainActivity.setUserID2;
 
 public class SignUpT extends AppCompatActivity {
 
     private EditText emailET, passET ,conPassET, nameET,ageET,addressET,numberET;
     private Button Bsup;
-    private RadioButton male,female;
+    private RadioGroup radioGroup;
+    private RadioButton genderRB,maleRB,femaleRB;
     private TextView genderTV,tv;
-    private String age,email,pass,Conpass;
-    private ProgressBar progressBar;
-    private RadioGroup rg;
-    private  String mName,mAge,mAddress,mgender,mEmail,mNumber;
 
+    private FirebaseAuth mAuth;
     private DatabaseReference mTravelerDatabase;
-
+    private String userID;
+    private String mName,mAge,mAddress,mNumber,mgender,mEmail;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupas_t);
-        emailET = findViewById(R.id.ETemail);
-        passET = findViewById(R.id.ETpass);
-        conPassET = findViewById(R.id.ETconfirmPass);
-        Bsup = findViewById(R.id.Bsup);
-        genderTV = findViewById(R.id.TVgender);
+
         nameET = findViewById(R.id.ETname);
         ageET = findViewById(R.id.ETage);
         addressET = findViewById(R.id.ETaddress);
-        tv = findViewById(R.id.tv1);
+        emailET = findViewById(R.id.ETemail);
+        passET = findViewById(R.id.ETpass);
+        conPassET = findViewById(R.id.ETconfirmPass);
         numberET = findViewById(R.id.ETnumber);
-        male = findViewById(R.id.RBmale);
-        female = findViewById(R.id.RBfemale);
-        progressBar=findViewById(R.id.suaaprogressBar1);
+
+        radioGroup = findViewById(R.id.RGid);
+        maleRB = findViewById(R.id.RBmale);
+        femaleRB = findViewById(R.id.RBfemale);
+        Bsup = findViewById(R.id.Bsup);
+        genderTV = findViewById(R.id.TVgender);
+        tv = findViewById(R.id.tv1);
+
+        mAuth = FirebaseAuth.getInstance();
+        userID = mAuth.getCurrentUser().getUid();
+        mTravelerDatabase = FirebaseDatabase.getInstance().getReference().child("user").child("traveler").child(userID);
 
 
-        male=findViewById(R.id.RBmale);
-        female=findViewById(R.id.RBfemale);
-
-        progressBar.setVisibility(View.INVISIBLE);
-        MainActivity.mAuth = FirebaseAuth.getInstance();
-
-        rg=findViewById(R.id.RG1);
-
-
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        genderRB = findViewById(selectedId);
 
         Bsup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 email = emailET.getText().toString().trim();
-                 pass = passET.getText().toString().trim();
-                 Conpass = conPassET.getText().toString().trim();
-                 age=ageET.getText().toString();
+                saveUserInfo();
+
+                String email = emailET.getText().toString().trim();
+                String pass = passET.getText().toString().trim();
+                String Conpass = conPassET.getText().toString().trim();
+                String age=ageET.getText().toString();
 
                 if(email.isEmpty())
                 {
@@ -98,60 +91,62 @@ public class SignUpT extends AppCompatActivity {
                     emailET.requestFocus();
                     return;
                 }
-                if(   age.isEmpty() || Integer.parseInt(age) <=0 || Integer.parseInt(age)>100 ){
+
+                if( Integer.parseInt(age) <=0 || Integer.parseInt(age)>=100 ){
 
                     ageET.setError("Enter a valid age between 1-100");
                     ageET.requestFocus();
                     return;
                 }
-                if( pass.compareTo(Conpass)!=0 )
+                if(pass.isEmpty())
+                {
+                    passET.setError("Enter a password");
+                    passET.requestFocus();
+                    return;
+                }
+
+                if(pass!=Conpass)
                 {
                     passET.setError("Password doesn't match");
                     passET.requestFocus();
                     return;
                 }
-                if( pass.length()<6){
-                    passET.setError("Password too short ");
-                    passET.requestFocus();
-                    return;
-                }
-                progressBar.setVisibility(View.VISIBLE);
-                MainActivity.mAuth.createUserWithEmailAndPassword(email, pass)
+
+
+                mAuth.createUserWithEmailAndPassword(email, pass)
+
                         .addOnCompleteListener(SignUpT.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                progressBar.setVisibility(View.INVISIBLE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(SignUpT.this.getApplicationContext(), "Register is successfull",
-                                            Toast.LENGTH_SHORT).show();
 
-                                    setUserID2();
-                                    mTravelerDatabase = FirebaseDatabase.getInstance().getReference().child("user").child("traveler").push();
-                                    saveUserInfo();
-                                    Intent a = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(a);
+                                    Toast.makeText(SignUpT.this.getApplicationContext(), "Register is successfull", Toast.LENGTH_SHORT).show();
+                                    String user_id = mAuth.getCurrentUser().getUid();
+                                    DatabaseReference current_userDB = FirebaseDatabase.getInstance().getReference().child("user").child("traveler").child(user_id);
+                                    current_userDB.setValue(true);
+                                    /*Intent a = new Intent(getApplicationContext(), FrontPage.class);
+                                    a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(a);*/
                                 } else {
-
-                                    Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).toString(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(),task.getException().toString(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
 
-
+                /*Intent a = new Intent(getApplicationContext(), SignInAsTraveler.class);
+                startActivity(a);*/
             }
         });
     }
-
+  
     private void saveUserInfo()
     {
         mName = nameET.getText().toString().trim();
-        mAge=ageET.getText().toString();
+        mAge = ageET.getText().toString();
         mAddress = addressET.getText().toString().trim();
         mNumber = numberET.getText().toString();
+        mgender = genderRB.getText().toString();
         mEmail = emailET.getText().toString();
-        if(male.isChecked()) mgender="Male";
-        else mgender="Female";
 
         Map userInfo = new HashMap();
         userInfo.put("name",mName);
@@ -160,10 +155,10 @@ public class SignUpT extends AppCompatActivity {
         userInfo.put("number",mNumber);
         userInfo.put("gender",mgender);
         userInfo.put("email",mEmail);
-        mTravelerDatabase.setValue(userInfo);
 
+        mTravelerDatabase.updateChildren(userInfo);
+
+        finish();
     }
 
 }
-
-
