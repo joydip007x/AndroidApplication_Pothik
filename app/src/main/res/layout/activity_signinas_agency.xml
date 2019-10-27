@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,89 +11,84 @@
         android:id="@+id/ETsInEmaila"
         android:layout_width="341dp"
         android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="342dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        android:textSize="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        android:textSize="20dp"
+         />
 
     <EditText
         android:id="@+id/ETsInPassa"
         android:layout_width="341dp"
         android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="270dp"
         android:hint="Password"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
         android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
+        android:textColorHint="#434040"
+        android:inputType="textPassword"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783" />
+      />
 
     <Button
         android:id="@+id/BsIna"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="SIGN IN"
-        android:textSize="18dp"
-        android:textColor="#ffffff"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="150dp"
         android:background="#434040"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        android:text="SIGN IN"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+
+      />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="220dp"
         android:layout_height="63dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="611dp"
         android:text="পথিক"
         android:textAlignment="center"
-        android:textColor="#F8D3CD"
+        android:textColor="#15A1F2"
         android:textSize="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+
+        />
 
     <TextView
         android:id="@+id/tva"
         android:layout_width="317dp"
         android:layout_height="44dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="534dp"
         android:text="Sign In As Agency"
         android:textAlignment="center"
         android:textColor="#ffffff"
@@ -104,5 +99,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.315" />
 
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="152dp"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="615dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonForgotPassA"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="448dp"
+        android:text="@string/uForgotPass" />
+
+</RelativeLayout>

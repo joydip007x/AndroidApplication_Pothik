@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/alto"
+    tools:context=".CreateATour">
+
+
+    <EditText
+        android:id="@+id/editTextCATTourDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="551dp"
+        android:ems="10"
+        android:textColor="@color/WhiteColor"
+
+        android:inputType="datetime"
+        android:hint="Tour Date" />
+
+    <EditText
+        android:id="@+id/editTextCATTourLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="489dp"
+        android:ems="10"
+        android:textColor="@color/WhiteColor"
+        android:inputType="textPersonName"
+        android:hint="Tour Location" />
+
+    <EditText
+        android:id="@+id/editTextCATTourName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/WhiteColor"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="616dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Tour Name" />
+
+    <EditText
+        android:id="@+id/editTextCATmoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="428dp"
+        android:ems="10"
+        android:hint="Money Required"
+        android:textColor="@color/WhiteColor"
+
+        android:inputType="numberSigned" />
+
+    <EditText
+        android:id="@+id/editTextCATdetails"
+        android:layout_width="369dp"
+        android:layout_height="110dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="293dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Tour details"
+        android:textColor="@color/WhiteColor"
+
+        android:inputType="textMultiLine" />
+
+    <ImageView
+        android:id="@+id/imageViewCATDP"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="286dp"
+        android:layout_marginBottom="81dp"
+        android:minWidth="128dp"
+        android:minHeight="128dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/selectanimage" />
+
+    <ImageView
+        android:id="@+id/imageViewCATDP2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="81dp"
+        android:minWidth="128dp"
+        android:minHeight="128dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/selectanimage" />
+
+    <ImageView
+        android:id="@+id/imageViewCATDP3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="80dp"
+        android:minWidth="128dp"
+        android:minHeight="128dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/selectanimage" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="213dp"
+        android:background="@color/BlackColor"
+        android:text="@string/Selectpic"
+        android:textColor="@color/WhiteColor" />
+
+    <Button
+        android:id="@+id/buttonPOSTIT"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/alto"
+        android:text="Post it" />
+
+
+</RelativeLayout>

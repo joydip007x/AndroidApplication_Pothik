@@ -1,11 +1,66 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"
+
+        >
         <!-- Customize your theme here. -->
+        <item name="android:windowTranslucentStatus">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBarAPI" parent="Theme.AppCompat.DayNight.NoActionBar" tools:ignore="DuplicateDefinition">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        
+
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    
+    <style name="AppTheme.Custom">
+
+        <item name="android:activityOpenExitAnimation">@anim/fui_slide_out_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/fui_slide_out_left</item>
+        <item name="android:exitFadeDuration">@integer/config_navAnimTime</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+    </style>
+
+
+    <style name="down_up_theme" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+        <item name="android:windowAnimationStyle">@style/down_up_animation</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fui_slide_out_left</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+    </style>
+
+    <style name="down_up_animation" parent="@android:style/Animation.Activity">
+
+        <item name="android:activityOpenEnterAnimation">@anim/fui_slide_in_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fui_slide_out_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/fui_slide_out_left</item>
+
+
     </style>
 
 </resources>

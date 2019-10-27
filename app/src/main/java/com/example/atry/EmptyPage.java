@@ -1,6 +1,9 @@
 package com.example.atry;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -20,6 +23,17 @@ public class EmptyPage extends AppCompatActivity {
         setContentView(R.layout.empty_page);
 
         textView= findViewById(R.id.textViewEmpty);
+        Button b=findViewById(R.id.buttonEmpty);
         textView.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        });
     }
 }

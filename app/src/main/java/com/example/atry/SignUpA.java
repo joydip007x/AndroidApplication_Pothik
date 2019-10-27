@@ -3,11 +3,18 @@ package com.example.atry;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,223 +24,178 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.example.atry.MainActivity.getUser;
+import static com.example.atry.MainActivity.mAuth;
+import static com.example.atry.MainActivity.setUser;
+import static com.example.atry.MainActivity.setUserID;
+import static com.example.atry.MainActivity.userID;
+import static java.lang.Thread.*;
+
 public class SignUpA extends AppCompatActivity {
 
-    private EditText emailET, passET, conPassET, nameET, agencyNameET, addressET, numberET, descriptionET;
+
+
+    private EditText emailET, passET ,conPassET, nameET,agencyNameET,addressET,numberET,descriptionET;
     private Button Bsup;
     private TextView tv;
-    private FirebaseAuth mAuth;
-    private DatabaseReference mAgencyDatabase;
-    private String userID;
-    private String mName,mAgencyName,mAddress,mNumber,mDescription,mEmail;
-    private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    private  static ProgressBar progressBar;
+    private  String email,pass,Conpass;
+    private  DatabaseReference mAgencyDatabase;
+    private String mAgencyName, mAddress,mNumber,mEmail,mDescription,mName;
+    static AgencyProfile AP=null;
 
+
+    static void setPBInv(){
+
+        progressBar.setVisibility(View.INVISIBLE);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupas_a);
-        nameET = findViewById(R.id.ETownerName);
-        agencyNameET = findViewById(R.id.ETcomName);
-        addressET = findViewById(R.id.ETaddress);
-        numberET = findViewById(R.id.ETnumber);
-        descriptionET = findViewById(R.id.ETdescription);
-        emailET = findViewById(R.id.ETemail);
-        passET = findViewById(R.id.ETpass);
-        conPassET = findViewById(R.id.ETconfirmPass);
 
-        Bsup = findViewById(R.id.Bsup);
-        tv = findViewById(R.id.tv1);
+        emailET = findViewById(R.id.ETemail2);
+        passET = findViewById(R.id.ETpass2);
+        conPassET = findViewById(R.id.ETconfirmPass2);
+        Bsup = findViewById(R.id.Bsup2);
+        nameET = findViewById(R.id.ETownerName2);
+        agencyNameET = findViewById(R.id.ETcomName2);
+        addressET = findViewById(R.id.ETaddress2);
+        numberET = findViewById(R.id.ETnumber2);
+        descriptionET = findViewById(R.id.ETdescription2);
+        progressBar=findViewById(R.id.suaaprogressBar2);
+        progressBar.setVisibility(View.INVISIBLE);
 
-        userID = mAuth.getCurrentUser().getUid();
-        mAgencyDatabase = FirebaseDatabase.getInstance().getReference().child("user").child("agency").child(userID);
 
-       /* firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(SignUpA.this, FrontPage.class);
-                    startActivity(intent);
-                    finish();
-                    return;
-                }
-            }
-        };*/
 
-        //profile e info show koranor function
-        //getUserInfo();
+        MainActivity.mAuth=FirebaseAuth.getInstance();
+        MainActivity.setUser();
+
 
         Bsup.setOnClickListener(new View.OnClickListener() {
+
+
+
             @Override
             public void onClick(View view) {
-                saveUserInfo();
-                String email = emailET.getText().toString().trim();
-                String pass = passET.getText().toString().trim();
-                String Conpass = conPassET.getText().toString().trim();
+
+                if(numberET.hasFocus()) numberET.clearFocus();
 
 
-                if (email.isEmpty()) {
+                mName=nameET.getText().toString();
+                mAddress=addressET.getText().toString();
+                mDescription=descriptionET.getText().toString();
+                mAgencyName = agencyNameET.getText().toString();
+                mNumber=numberET.getText().toString();
+                mEmail = emailET.getText().toString();
+                pass = passET.getText().toString();
+                Conpass = conPassET.getText().toString().trim();
+                email=mEmail;
+
+                if(mNumber.length()!=11){
+
+                    numberET.setError("Give a correct phone number Consisting 11 Digit");
+                    numberET.requestFocus();
+                    return;
+                }
+                if(email.isEmpty())
+                {
                     emailET.setError("Enter an email address");
                     emailET.requestFocus();
                     return;
                 }
-
-                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
+                {
                     emailET.setError("Enter a valid email address");
                     emailET.requestFocus();
                     return;
                 }
 
-
-                if (pass != Conpass) {
+                if( pass.compareTo(Conpass)!=0 )
+                {
                     passET.setError("Password doesn't match");
                     passET.requestFocus();
                     return;
                 }
-
-                MainActivity.mAuth.createUserWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(SignUpA.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(SignUpA.this.getApplicationContext(), "Register is successfull", Toast.LENGTH_SHORT).show();
-
-                                    String user_id = mAuth.getCurrentUser().getUid();
-                                    DatabaseReference current_userDB = FirebaseDatabase.getInstance().getReference().child("user").child("agency").child(user_id);
-                                    current_userDB.setValue(true);
-
-                                    /*Intent a = new Intent(getApplicationContext(), FrontPage.class);
-                                    a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    startActivity(a);*/
-
-                                } else {
-
-                                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-
-
-                /*Intent a = new Intent(getApplicationContext(), SignInAsAgency.class);
-                startActivity(a);*/
-            }
-        });
-    }
-    private void saveUserInfo()
-    {
-        mName = nameET.getText().toString().trim();
-        mAgencyName = agencyNameET.getText().toString();
-        mAddress = addressET.getText().toString().trim();
-        mNumber = numberET.getText().toString();
-        mDescription = descriptionET.getText().toString().trim();
-        mEmail = emailET.getText().toString();
-
-        Map userInfo = new HashMap();
-        userInfo.put("name",mName);
-        userInfo.put("agencyName",mAgencyName);
-        userInfo.put("address",mAddress);
-        userInfo.put("number",mNumber);
-        userInfo.put("description",mDescription);
-        userInfo.put("email",mEmail);
-        mAgencyDatabase.setValue(userInfo);
-
-    }
-
-
-    private void saveUserInfo()
-    {
-        mName = nameET.getText().toString().trim();
-        mAgencyName = agencyNameET.getText().toString();
-        mAddress = addressET.getText().toString().trim();
-        mNumber = numberET.getText().toString();
-        mDescription = descriptionET.getText().toString().trim();
-        mEmail = emailET.getText().toString();
-
-        Map userInfo = new HashMap();
-        userInfo.put("name",mName);
-        userInfo.put("agencyName",mAgencyName);
-        userInfo.put("address",mAddress);
-        userInfo.put("number",mNumber);
-        userInfo.put("description",mDescription);
-        userInfo.put("email",mEmail);
-
-        mAgencyDatabase.updateChildren(userInfo);
-
-        finish();
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(firebaseAuthListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mAuth.removeAuthStateListener(firebaseAuthListener);
-    }
-
-    /*
-       // Profile e info show koranor code
-
-
-   private void getUserInfo()
-    {
-        mAgencyDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists() && dataSnapshot.getChildrenCount()>0)
-                {
-                    Map<String,Object> map = (Map<String,Object>) dataSnapshot.getValue();
-                    if(map.get("name")!=null)
-                    {
-                        mName = map.get("name").toString();
-                        nameET.setText(mName);
-                    }
-                    if(map.get("agencyName")!=null)
-                    {
-                        mAgencyName = map.get("name").toString();
-                        agencyNameET.setText(mName);
-                    }
-                    if(map.get("address")!=null)
-                    {
-                        mAddress = map.get("name").toString();
-                        addressET.setText(mName);
-                    }
-                    if(map.get("number")!=null)
-                    {
-                        mNumber = map.get("name").toString();
-                        numberET.setText(mName);
-                    }
-                    if(map.get("description")!=null)
-                    {
-                        mDescription = map.get("name").toString();
-                        descriptionET.setText(mName);
-                    }
-                    if(map.get("email")!=null)
-                    {
-                        mEmail = map.get("name").toString();
-                        emailET.setText(mName);
-                    }
+                if( pass.length()<6){
+                    passET.setError("Password too short ");
+                    passET.requestFocus();
+                    return;
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressBar.setVisibility(View.VISIBLE);
+
+                AP=new AgencyProfile(mAgencyName,mAddress,mNumber,mEmail,mDescription,mName);
+
+                UniqnessCheck.checkPhone(mNumber, SignUpA.this,email,pass,"A");
 
             }
         });
-    }*/
+    }
+        static void doRegister(final Context context, final String email, String pass){
 
+
+        MainActivity.mAuth.createUserWithEmailAndPassword(email, pass)
+                .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+
+                            setPBInv();
+
+                            Toast.makeText(context, "Register is successfull ", Toast.LENGTH_SHORT).show();
+
+                            mAuth.getCurrentUser().sendEmailVerification().
+                                    addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(context, " Verification-Email Sent ",
+                                                        Toast.LENGTH_LONG).show();
+
+                                               AP.saveUserInfo();
+                                               MainActivity.startAftSignUp(context);
+
+                                            } else {
+
+                                                Toast.makeText(context, task.getException().getMessage().toString()
+                                                        , Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+                        } else {
+                            setPBInv();
+                            Toast.makeText(context,task.getException().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+
+                });
+
+    }
+    static void toashShow(Context context, String msg ,int success){
+
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+        setPBInv();
+
+    }
 
 }
+

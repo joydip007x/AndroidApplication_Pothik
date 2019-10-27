@@ -1,0 +1,25 @@
+package com.example.atry;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class Nav_draw_Fragment_Cur_Tour extends Fragment {
+
+
+    @Nullable
+    @Override
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
+
+        return inflater.inflate(R.layout.nav_a_fragment_cur_tour,container,false);
+    }
+}

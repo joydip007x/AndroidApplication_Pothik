@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">Try</string>
-
+    <string name="app_name">Pothik</string>
+    <string name="app_version">Pothik V1.2</string>
+    <string name="uForgotPass"><u>Forgot Password</u></string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_nav_draw_a">Nav_draw_a</string>
+    <string name="Dev">Nav_draw_a</string>
+    <string name="Selectpic">Select 3 Pictures from your gallery\n\nThe First One will be <u>Cover picture</u> of <b>Your added Tour</b></string>
 </resources>

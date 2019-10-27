@@ -19,7 +19,7 @@
         android:layout_marginBottom="611dp"
         android:text="Sign Up As Traveler"
         android:textAlignment="center"
-        android:textColor="#F8D3CD"
+        android:textColor="#ffffff"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +40,7 @@
         android:textSize="20dp"
         android:textColorHint="#ffffff"
         android:textColor="#ffffff"
+        android:textAlignment="textStart"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="560dp" />
 
@@ -74,61 +75,7 @@
         android:textColorHint="#ffffff"
         android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/TVgender"
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="323dp"
-        android:layout_marginBottom="402dp"
-        android:text="Gender"
-        android:textColor="#ffffff"
-        android:textSize="21dp" />
-
-
-    <RadioGroup
-        android:id="@+id/RGid"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="393dp" />
-
-    <RadioButton
-        android:id="@+id/RBmale"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="148dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="394dp"
-        android:text="Male"
-        android:textColor="#ffffff"
-        android:textSize="20dp" />
-
-        <RadioButton
-        android:id="@+id/RBfemale"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="276dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="396dp"
-        android:text="Female"
-        android:textColor="#ffffff"
-        android:textSize="20dp" />
-
-
-
-
-    <EditText
+    <!-- <EditText
         android:id="@+id/ETreligion"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
@@ -137,12 +84,72 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="335dp"
+        android:layout_marginBottom="320dp"
         android:hint="Religion"
+        android:textAlignment="center"
         android:textColorHint="#ffffff"
         android:textColor="#ffffff"
         android:inputType="textShortMessage"
+        android:textSize="20dp" />-->
+
+    <TextView
+        android:id="@+id/TVgender"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="397dp"
+        android:text="Gender"
+        android:textColor="#ffffff"
         android:textSize="20dp" />
+
+   <!-- <RadioGroup
+        android:id="@+id/RGGender"
+        android:layout_width="390dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="395dp" />-->
+
+    <RadioGroup
+        android:id="@+id/RG1"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="393dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <RadioButton
+            android:id="@+id/RBmale"
+            android:layout_width="127dp"
+            android:layout_height="51dp"
+
+            android:layout_marginStart="105dp"
+
+            android:allowUndo="true"
+            android:checked="false"
+            android:text="Male"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:id="@+id/RBfemale"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+
+            android:allowUndo="true"
+            android:checked="false"
+            android:text="Female"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+    </RadioGroup>
 
     <EditText
         android:id="@+id/ETnumber"
@@ -150,15 +157,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:inputType="phone"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="285dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="347dp"
         android:hint="Contact Number"
-        android:textColorHint="#ffffff"
+        android:inputType="phone"
         android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
         android:textSize="20dp" />
+
+
+
     <EditText
         android:id="@+id/ETemail"
         android:layout_width="388dp"
@@ -167,14 +177,15 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="13dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="235dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="295dp"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         android:textSize="20dp" />
+
     <EditText
         android:id="@+id/ETpass"
         android:layout_width="388dp"
@@ -183,14 +194,16 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="13dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="185dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="241dp"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
         android:textColor="#ffffff"
         android:textColorHint="#434040"
         android:textSize="20dp" />
+
     <EditText
         android:id="@+id/ETconfirmPass"
         android:layout_width="388dp"
@@ -198,15 +211,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="135dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="186dp"
         android:hint="Confirm Password"
         android:inputType="textPassword"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
         android:textColor="#ffffff"
         android:textColorHint="#434040"
         android:textSize="20dp" />
+
     <Button
         android:id="@+id/Bsup"
         android:layout_width="wrap_content"
@@ -216,13 +231,27 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="10dp"
-        android:background="#434040"
+        android:background="#000000"
         android:layout_marginBottom="50dp"
-        android:text="Sign In As Traveler"
+        android:text="Sign Up As Traveler"
         android:textAlignment="center"
         android:textColor="#ffffff"
+
         android:textSize="20dp" />
 
+    <ProgressBar
+        android:id="@+id/suaaprogressBar1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="111dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/OcolorAccent"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>

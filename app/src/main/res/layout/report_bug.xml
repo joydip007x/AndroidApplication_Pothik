@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:padding="5dp"
+    android:gravity=""
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:title="Report Bug"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionOverflowMenuStyle" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+
+        >
+
+        <EditText
+            android:id="@+id/report_bug_email"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="2dp"
+            android:layout_marginStart="0dp"
+            android:layout_weight="99"
+            android:inputType="textPersonName"
+            android:hint="Your Email"
+             />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="290dp"
+        android:layout_height="80dp"
+        android:padding="5dp" >
+
+        <EditText
+            android:id="@+id/report_bug_rep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Details of your report"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+
+</LinearLayout>

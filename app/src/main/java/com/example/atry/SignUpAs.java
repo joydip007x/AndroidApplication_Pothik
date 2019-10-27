@@ -5,13 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 public class SignUpAs extends AppCompatActivity {
 
-    Button BsignIn,BsignUp,BsignUpTreveler,BsignUpAgency;
+    private Button BsignIn,BsignUp,BsignUpTreveler,BsignUpAgency;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signupas);
 
@@ -24,6 +30,7 @@ public class SignUpAs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent a = new Intent(getApplicationContext(), MainActivity.class);
+                a.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(a);
             }
         });
@@ -31,6 +38,7 @@ public class SignUpAs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent a = new Intent(getApplicationContext(), SignUpA.class);
+                a.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(a);
             }
         });
@@ -38,6 +46,7 @@ public class SignUpAs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent a = new Intent(getApplicationContext(), SignUpT.class);
+                a.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(a);
             }
         });

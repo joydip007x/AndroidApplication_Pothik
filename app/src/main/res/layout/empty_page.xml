@@ -10,7 +10,7 @@
         android:id="@+id/buttonEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BalerButton" />
+        android:text="BButton" />
 
     <TextView
         android:id="@+id/textViewEmpty"

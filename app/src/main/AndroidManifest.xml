@@ -12,13 +12,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".CreateATour"></activity>
+        <activity
+            android:name=".PopUpDp"
+            android:theme="@style/down_up_theme"></activity>
+        <activity
+            android:name=".Nav_Draw_Agency"
+            android:label="@string/title_activity_nav_draw_a"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignInAsTraveler" />
         <activity android:name=".SignUpA" />
         <activity android:name=".SignUpT" />
         <activity android:name=".SignUpAs" />
         <activity android:name=".SignInAsAgency" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".FrontPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,14 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-       <!-- <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>-->
+        <activity android:name=".MainActivity" />
+        <activity android:name=".EmptyPage" />
+        <activity android:name=".ViewAppDev" />
     </application>
 
 </manifest>

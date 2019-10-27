@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_a_profile"
+            android:icon="@drawable/ic_nav_a_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_a_up_tour"
+            android:icon="@drawable/ic_nav_a_up_tour"
+            android:title="Upcoming Tour" />
+        <item
+            android:id="@+id/nav_a_cur_tour"
+            android:icon="@drawable/ic_nav_a_cur_tour"
+            android:title="Current Tours" />
+    </group>
+    <item android:title="Extras">
+        <menu>
+            <item
+                android:id="@+id/nav_a_setting"
+                android:icon="@drawable/ic_nav_a_setting"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_a_log"
+                android:icon="@drawable/ic_nav_a_log_out"
+                android:title="LogOut" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="176dp"
+    android:background="@drawable/joydada1"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <ImageView
+
+        android:id= "@+id/Nav_agency_header_dp"
+        android:layout_width="77dp"
+        android:layout_height="75dp"
+        android:clickable="true"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        android:src="@drawable/pikapika"
+        />
+
+    <TextView
+        android:id="@+id/Nav_agency_header_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Pikapika"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="@color/usernamecolor"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id= "@+id/Nav_agency_header_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/usernamecolor"
+        android:text="pikachuda@gmail.com"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    <TextView
+        android:id= "@+id/Nav_agency_header_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp"
+        android:textColor="@color/usernamecolor"
+        android:text="+8800000000000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+</LinearLayout>
