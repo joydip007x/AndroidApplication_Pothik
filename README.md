@@ -1,7 +1,7 @@
 ## POTHIK ##
 This app was our First Android Project at SUST .
 >
-*WE forgot to put an readme  after development that's why this is updated in 2022*
+*WE forgot to put an readme  after development that's why this is updated in 2022 + all images were not added*
 
 We have also attached a **Prototype** for the visualization of the app
 
@@ -9,6 +9,16 @@ We Used :
 
 - Android Studio (java)
 - FireBase 
+- KMP algortihm for search filter
+
+Our Apps Goal : 
+- Tour Agencies will add a tour with all the details like money ,location,etc with Pictures
+- Travelers(client) can sign up for a tour 
+- CLient can search for tours with filters
+- Click on Search result and view Details of Tour and CAll/Register for that Trip (This image was not added here)
+- Report Problem to Devolopers
+- Clients and  Agencies can update/manage their Own Dashboard
+
 
 for the development of this project. <br/> <br/>
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/1.jpg' width='310' height='520' > &nbsp; &nbsp;
