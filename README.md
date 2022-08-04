@@ -22,18 +22,20 @@ Our Apps Goal :
 
 for the development of this project. <br/> <br/>
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/1.jpg' width='310' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.1.jpg' width='320' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.jpg' width='320' height='520' >
+<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.1.jpg' width='320' height='520' > &nbsp; &nbsp; <br/>
 
-**Login/Register Screen** $~~~~~~~~~~~$ $~~~~~~~~~~~$   $~~~~~~~~~$ **User Navigation Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~$   $~~~~~~~~~$ **Agency Navigation Menu**
-
-<br/> 
-
+**Login/Register Screen** $~~~~~~~~~~~$ $~~~~~~~~~~~$   $~~~~~~~~~$ **User Navigation Menu** 
+<br/><br/>
+<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.jpg' width='320' height='520' > &nbsp; &nbsp;
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/3.jpg' width='310' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/4.jpg' width='320' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/5.jpg' width='320' height='520' >
+<br/> **Agency Navigation Menu** $~~~~~~~~~~~$ $~~~~~~~~~~~$   $~~~~~~~~~$ **Profile-Dashboard**
 
-**Profile-Dashboard** $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ **Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Tour Feed**
+<br/><br/> 
+
+<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/4.jpg' width='320' height='520' > &nbsp; &nbsp;
+<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/5.jpg' width='320' height='520' >&nbsp; &nbsp;
+<br/>
+**Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Tour Feed**
 
 
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/6.jpg' width='310' height='520' > &nbsp; &nbsp;
