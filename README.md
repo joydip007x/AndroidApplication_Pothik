@@ -40,9 +40,9 @@ for the development of this project. <br/> <br/>
 
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/6.jpg' width='310' height='520' > &nbsp; &nbsp;
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/7.jpg' width='320' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/8.jpg' width='320' height='520' >
 
-**Search Filters** $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ **Multiple Filter Selection** $~~~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Searching With Filter On**
+
+**Search Filters** $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ **Multiple Filter Selection** $~~~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ 
 
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/9.jpg' width='310' height='520' > &nbsp; &nbsp;
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/10.jpg' width='320' height='520' > &nbsp; &nbsp;
@@ -55,3 +55,7 @@ for the development of this project. <br/> <br/>
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/14.jpg' width='320' height='520' >
 
 **Our Team Members Name & EMail**  $~~~~~~~~~~~~~~~~~~~~~~$ **Version Info**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **LogOut**
+
+<br/><br/>
+<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/8.jpg' width='320' height='520' >
+**Searching With Filter On**
