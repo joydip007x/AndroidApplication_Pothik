@@ -1,5 +1,5 @@
 ## POTHIK ##
-This app was our First Android Project at SUST .
+This app was our First Android Project at SUST (CSE 250).
 >
 *WE forgot to put an readme  after development that's why this is updated in 2022 + all images were not added*
 
