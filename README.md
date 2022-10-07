@@ -11,6 +11,8 @@ We Used :
 - FireBase 
 - KMP algortihm for search filter
 
+for the development of this project. <br/>
+
 Our Apps Goal : 
 - Tour Agencies will add a tour with all the details like money ,location,etc with Pictures
 - Travelers(client) can sign up for a tour 
@@ -20,7 +22,10 @@ Our Apps Goal :
 - Clients and  Agencies can update/manage their Own Dashboard
 
 
-for the development of this project. <br/> <br/>
+ <br/> <br/>
+
+**ALL SS IS UPLOADED HERE**-https://ibb.co/album/kKkQb4
+
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/1.jpg' width='310' height='520' > &nbsp; &nbsp;
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.1.jpg' width='320' height='520' > &nbsp; &nbsp; <br/>
 
@@ -38,8 +43,8 @@ for the development of this project. <br/> <br/>
 **Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Tour Feed**
 
 
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/6.jpg' width='310' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/7.jpg' width='320' height='520' > &nbsp; &nbsp;
+<img src='https://i.ibb.co/6g5WP3g/6.jpg' width='310' height='520' > &nbsp; &nbsp;
+<img src='https://i.ibb.co/423YbYB/7.jpg' width='320' height='520' > &nbsp; &nbsp;
 <br/>
 **Search Filters** $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ **Multiple Filter Selection** $~~~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ 
 
