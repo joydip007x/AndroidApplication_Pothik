@@ -24,7 +24,7 @@ Our Apps Goal :
 
  <br/> <br/>
 
-**ALL SS IS UPLOADED HERE**-https://ibb.co/album/kKkQb4
+**ALL SS IS UPLOADED HERE**- ```https://ibb.co/album/kKkQb4```
 
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/1.jpg' width='310' height='520' > &nbsp; &nbsp;
 <img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/master/Photos-001/2.1.jpg' width='320' height='520' > &nbsp; &nbsp; <br/>
@@ -37,12 +37,12 @@ Our Apps Goal :
 
 <br/>
 
-<img src='https://i.ibb.co/g7pvH2D/4.jpg' width='320' height='520' > &nbsp; &nbsp;
-<img src='https://i.ibb.co/G02pRLg/5.jpg' width='320' height='520' >&nbsp; &nbsp;
+<img src='https://i.ibb.co/g7pvH2D/4.jpg' width='320' height='520' > &nbsp; &nbsp; 
+
 <br/>
-**Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Tour Feed**
-
-
+**Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$ 
+<img src='https://i.ibb.co/G02pRLg/5.jpg' width='320' height='520' >&nbsp; &nbsp;
+  $~~~~~~~~~$ **Tour Feed**
 <img src='https://i.ibb.co/6g5WP3g/6.jpg' width='310' height='520' > &nbsp; &nbsp;
 <img src='https://i.ibb.co/423YbYB/7.jpg' width='320' height='520' > &nbsp; &nbsp;
 <br/>
