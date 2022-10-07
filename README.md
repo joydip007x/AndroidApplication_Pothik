@@ -32,8 +32,8 @@ for the development of this project. <br/> <br/>
 
 <br/>
 
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/20c8d5f16bcc810e0bc80c121603b6c793302334/Photos-001/4.jpg' width='320' height='520' > &nbsp; &nbsp;
-<img src='https://github.com/joydip007x/AndroidApplication_Pothik/blob/20c8d5f16bcc810e0bc80c121603b6c793302334/Photos-001/5.jpg' width='320' height='520' >&nbsp; &nbsp;
+<img src='https://i.ibb.co/g7pvH2D/4.jpg' width='320' height='520' > &nbsp; &nbsp;
+<img src='https://i.ibb.co/G02pRLg/5.jpg' width='320' height='520' >&nbsp; &nbsp;
 <br/>
 **Add A Tour  Menu**  $~~~~~~~~~~~$ $~~~~~~~~~~~~~~~~~~~$   $~~~~~~~~~$ **Tour Feed**
 
