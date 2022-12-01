@@ -13,11 +13,11 @@ We Used :
 
 for the development of this project. <br/>
 
-Our Apps Goal : 
+Our Apps Solved the Gap of Tour Management & Client with These  : 
 - Tour Agencies will add a tour with all the details like money ,location,etc with Pictures
 - Travelers(client) can sign up for a tour 
 - CLient can search for tours with filters
-- Click on Search result and view Details of Tour and CAll/Register for that Trip (This image was not added here)
+- Click on Search result and view Details of Tour and CAll/Register for that Trip 
 - Report Problem to Devolopers
 - Clients and  Agencies can update/manage their Own Dashboard
 
